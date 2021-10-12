@@ -6,5 +6,4 @@ urlpatterns = [
     path('home', views.home),
     path('about', views.about),
     path('cars', views.cars),
-    path('api/v1/cars', views.cars_json),
 ]

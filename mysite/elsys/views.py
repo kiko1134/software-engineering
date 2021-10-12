@@ -16,11 +16,3 @@ def about(request):
 
 def cars(request):
     return render(request, 'cars.html')
-
-
-from .serializers import CarSerializer
-from .models import Car
-
-def cars_json(request):
-    cars = Car.objects.all()
-    return JsonResponse(CarSerializer(cars, many = True).data, safe=False)

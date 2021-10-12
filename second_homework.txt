@@ -15,3 +15,7 @@ https://api-v3.mbta.com/predictions?page%5Boffset%5D=0&page%5Blimit%5D=10&sort=-
 
 Id of the North Station Stop
 place-north
+
+REQUEST THAT RETURNS EVERYTHING YOU NEED:
+
+https://api-v3.mbta.com/predictions?page%5Boffset%5D=0&page%5Blimit%5D=10&sort=departure_time&include=schedule%2Ctrip&filter%5Bdirection_id%5D=0&filter%5Bstop%5D=place-north

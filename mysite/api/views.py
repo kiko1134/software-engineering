@@ -36,7 +36,7 @@ class CarsView(APIView):
     def get(self, request):
         cars = Car.objects.all()
         serializer = CarSerializer(cars, many = True)
-        return JsonResponse({'data': serializer.data }, safe=False)
+        return JsonResponse({'data': serializer.data}, safe=False)
 
     def post(self, request):
         serializer = CarSerializer(data = request.data)

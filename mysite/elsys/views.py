@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from elsys.processors.api_processor import ApiProcessor
 # Create your views here.
 PI = 3.14
 
@@ -16,3 +16,9 @@ def about(request):
 
 def cars(request):
     return render(request, 'cars.html')
+
+def longest_comment(request):
+    return JsonResponse(ApiProcessor.longest_comment(), safe=False)
+
+def post_with_longest_title(request):
+    return JsonResponse(ApiProcessor.post_with_longest_title(), safe=False)

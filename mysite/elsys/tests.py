@@ -21,18 +21,14 @@ class TestCarModel(TestCase):
     def test_car_sound(self):
         assert Car.objects.get(brand="audi").sound_check() == "brum brum"
 
-from unittest.mock import patch
+from unittest.mock import Mock, patch
+from elsys.processors.api_processor import ApiProcessor
+import json
 
-#class ApiHandler:
-#    def call_api(self):
-#        response = requests.get("url")
-#        data = response['data']
-#        return data['a'] + 1
-
-
-#class TestC(TestCase):
-#    @patch("requests.get")
-#    def test_call_api(self, mocked_requests):
-#        mocked_requests.return_value = {'data':{'a': 1}}
-#        response = ApiHandler().call_api()
-#        assert response == 2
+class TestC(TestCase):
+    @patch("requests.get")
+    def test_call_api(self, mocked_requests):
+        data = json.load(open('./elsys/comments.json'))
+        mocked_requests.return_value.json = Mock(return_value = data)
+        response = ApiProcessor().longest_comment()
+        assert response['id'] == 3
